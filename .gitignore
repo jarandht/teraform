@@ -1,2 +1,4 @@
 .terrafor*
 terraform.tfstate*
+*.tfstate
+*.tfstate.*
