@@ -14,3 +14,17 @@ terraform {
 provider "azurerm" {
   features {}
 }
+
+resource "azurerm_resource_group" "main" {
+  name     = var.rg_name
+  location = var.location
+}
+
+module "name" {
+  source         = "./modules/network"
+  name_prefix    = var.name_prefix
+  location       = var.location
+  rg_name        = azurerm_resource_group.main.name
+  address_prefix = var.address_prefix
+  address_space  = var.address_space
+}

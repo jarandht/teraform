@@ -3,10 +3,10 @@ variable "location" {
   default = "norwayeast"
 }
 
-#variable "pipeline_principal_id" {
-#  description = "OBJECT-ID til service principal-en, ikke client-ID. Se seksjon 10."
-#  type        = string
-#}
+variable "pipeline_principal_id" {
+  description = "OBJECT-ID til service principal-en, ikke client-ID. Se seksjon 10."
+  type        = string
+}
 
 locals {
   kortnavn = "jht05"

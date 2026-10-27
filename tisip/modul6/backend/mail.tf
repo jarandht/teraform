@@ -70,20 +70,20 @@ resource "azurerm_role_assignment" "meg_kv" {
 
 # --- Tilgang: workflowen (service principal-en bak App Registration-en) ---
 
-#resource "azurerm_role_assignment" "pipeline_contributor" {
-#  scope                = azurerm_resource_group.backend.id
-#  role_definition_name = "Contributor"
-#  principal_id         = var.pipeline_principal_id
-#}
-#
-#resource "azurerm_role_assignment" "pipeline_blob" {
-#  scope                = azurerm_storage_account.state.id
-#  role_definition_name = "Storage Blob Data Contributor"
-#  principal_id         = var.pipeline_principal_id
-#}
-#
-#resource "azurerm_role_assignment" "pipeline_kv" {
-#  scope                = azurerm_key_vault.demo.id
-#  role_definition_name = "Key Vault Secrets User"
-#  principal_id         = var.pipeline_principal_id
-#}
+resource "azurerm_role_assignment" "pipeline_contributor" {
+  scope                = azurerm_resource_group.backend.id
+  role_definition_name = "Contributor"
+  principal_id         = var.pipeline_principal_id
+}
+
+resource "azurerm_role_assignment" "pipeline_blob" {
+  scope                = azurerm_storage_account.state.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = var.pipeline_principal_id
+}
+
+resource "azurerm_role_assignment" "pipeline_kv" {
+  scope                = azurerm_key_vault.demo.id
+  role_definition_name = "Key Vault Secrets User"
+  principal_id         = var.pipeline_principal_id
+}
