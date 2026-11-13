@@ -58,14 +58,14 @@ jobs:
           terraform init \
             -backend-config=backend.hcl \
             -backend-config="key=modul7/dev/network.tfstate"
-      - run: terraform plan -var-file="dev.tfvars" -no-color
+      - run: terraform plan -var-file="dev.tfvars" -no-colore 
 
   apply-dev:                   # ved merge til main
     needs: build
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment: dev
-    steps:
+    seps:
       - uses: actions/checkout@v4
       - uses: Azure/login@v3.1.0
         with:
