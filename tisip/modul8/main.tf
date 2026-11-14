@@ -21,7 +21,7 @@ resource "azurerm_resource_group" "main" {
 }
 
 module "name" {
-  source         = "./modules/network"
+  source = "git::https://github.com/jarandht/teraform.git//tisip/modules/network?ref=network-v1.1.0"
   name_prefix    = var.name_prefix
   location       = var.location
   rg_name        = azurerm_resource_group.main.name
