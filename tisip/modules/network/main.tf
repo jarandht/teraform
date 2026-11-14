@@ -11,3 +11,10 @@ resource "azurerm_subnet" "this" {
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = var.address_prefix
 }
+
+resource "azurerm_subnet" "this" {
+  name                 = "subnet-${var.name_prefix}"
+  resource_group_name  = var.rg_name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = ["10.0.67.0/24"]           # ledig blokk i 10.0.0.0/16
+}
