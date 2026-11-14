@@ -65,7 +65,7 @@ jobs:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment: dev
-    seps:
+    steps:
       - uses: actions/checkout@v4
       - uses: Azure/login@v3.1.0
         with:
