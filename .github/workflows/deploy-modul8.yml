@@ -28,6 +28,11 @@ jobs:
     steps:
       - run: |
           pwd
+          ls -la
+          ls -la tisip/
+          ls -la tisip/modul8/
+      - run: |
+          pwd
           git status --short
           terraform version
           find . -name "*.tf" -print
