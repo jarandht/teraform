@@ -12,7 +12,7 @@ resource "azurerm_subnet" "this" {
   address_prefixes     = var.address_prefix
 }
 
-resource "azurerm_subnet" "this" {
+resource "azurerm_subnet" "test" {
   name                 = "subnet-${var.name_prefix}-test"
   resource_group_name  = var.rg_name
   virtual_network_name = azurerm_virtual_network.vnet.name
