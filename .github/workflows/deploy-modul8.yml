@@ -26,6 +26,12 @@ jobs:
   build:                   # kvalitetsporten fra modul 7 – før noe rulles ut
     runs-on: ubuntu-latest
     steps:
+      - run: |
+          pwd
+          git status --short
+          terraform version
+          find . -name "*.tf" -print
+          terraform fmt -check -recursive -diff
       - uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3
       - run: terraform fmt -check -recursive
