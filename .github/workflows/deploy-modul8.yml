@@ -1,10 +1,10 @@
 name: deploy-modul8
 
 on:
-  push:
-    branches: [main]
   #push:
-  #  tags: ['modul8-v*']    # bare modul8-taggene starter en utrulling
+  #  branches: [main]
+  push:
+    tags: ['modul8-v*']    # bare modul8-taggene starter en utrulling
 
 permissions:
   id-token: write          # OIDC mot Azure (modul 6)
@@ -30,15 +30,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3
-      - run: |
-          pwd
-          ls -la
-      - run: |
-          pwd
-          git status --short
-          terraform version
-          find . -name "*.tf" -print
-          terraform fmt -check -recursive -diff
       - run: terraform fmt -check -recursive
       - run: terraform init -backend=false
       - run: terraform validate
