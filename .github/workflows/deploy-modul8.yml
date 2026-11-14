@@ -14,9 +14,9 @@ concurrency:
   group: deploy-modul8     # én utrulling av gangen mot modul8-staten
   cancel-in-progress: false
 
-#defaults:
-#  run:
-#    working-directory: tisip/modul8    # her bor Terraform-rota
+defaults:
+  run:
+    working-directory: tisip/modul8    # her bor Terraform-rota
 
 env:
   ARM_USE_OIDC:        "true"
@@ -29,18 +29,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
       - run: |
           pwd
           ls -la
-          ls -la tisip/
-          ls -la tisip/modul8/
       - run: |
           pwd
           git status --short
           terraform version
           find . -name "*.tf" -print
           terraform fmt -check -recursive -diff
-      - uses: hashicorp/setup-terraform@v3
       - run: terraform fmt -check -recursive
       - run: terraform init -backend=false
       - run: terraform validate
