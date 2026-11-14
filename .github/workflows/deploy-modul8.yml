@@ -2,7 +2,9 @@ name: deploy-modul8
 
 on:
   push:
-    tags: ['modul8-v*']    # bare modul8-taggene starter en utrulling
+    branches: [main]
+  #push:
+  #  tags: ['modul8-v*']    # bare modul8-taggene starter en utrulling
 
 permissions:
   id-token: write          # OIDC mot Azure (modul 6)
@@ -12,9 +14,9 @@ concurrency:
   group: deploy-modul8     # én utrulling av gangen mot modul8-staten
   cancel-in-progress: false
 
-defaults:
-  run:
-    working-directory: tisip/modul8    # her bor Terraform-rota
+#defaults:
+#  run:
+#    working-directory: tisip/modul8    # her bor Terraform-rota
 
 env:
   ARM_USE_OIDC:        "true"
