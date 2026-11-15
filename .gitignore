@@ -1,4 +1,4 @@
 .terrafor*
-terraform.tfstate*
 *.tfstate
 *.tfstate.*
+modules/**/.terraform.lock.hcl
